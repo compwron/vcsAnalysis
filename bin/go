@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+require 'trollop'
+require 'date'
+require_relative '../lib/parser'
+require_relative '../lib/commits'
+
+opts = Trollop::options do
+  opt :root, "Folder in which .git folder is", :default => "."
+  opt :after, "Date after which to calculate. Defaults to 30 days pripr to today.", :default => Date.today - 30
+  opt :devnames, "Names of devs, separated by spaces (will be saved to local config until overridden)", :default => "Alice Bob Charlie"
+  opt :cardprefix, "Prefix of cards (will be saved to local config until overridden)", :default => "FOO-"
+  opt :bycard, "See data by card", :default => false
+  opt :bydev, "See data by dev", :default => false
+end
+
+def run_command opts
+  commits = Commits.new(Parser.new(opts[:root], opts[:after]).lines, opts[:devnames], opts[:cardprefix])
+  if opts[:bycard]
+    Munger.new(commits).by_card
+  elsif opts[:bydev]
+    Munger.new(commits).by_dev
+  end
+end
+
+puts run_command(opts).join("\n")
