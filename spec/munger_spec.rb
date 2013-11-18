@@ -1,14 +1,15 @@
 require_relative "spec_helper"
-# describe Munger do
+describe Munger do
 
-#   subject { Munger.new }
+  subject { Munger.new }
 
-#   before do
-#   end
+  before do
+  end
 
-#   describe "#method_name" do
-#     it "should do stuff because x" do
-#     	# subject.method_name.should == "value"
-#     end
-#   end
-# end
+  describe "#by_card" do
+    it "should output data formatted by card" do
+    	commits = Commits.new(["FOO-100 [Alice, Bob] stuff"], "Alice Bob", "FOO-")
+    	Munger.new(commits).by_card.should == ["FOO-100 ... 1 commit ... devs: Alice, Bob"]
+    end
+  end
+end

@@ -20,9 +20,9 @@ describe Parser do
 
   describe "#initialize" do
     it "should get raw text of log lines" do
-    	create_commit("This is a commit")
-    	subject.lines.size.should == 1
-    	subject.lines.first.should include("This is a commit")
+      create_commit("This is a commit")
+      subject.lines.size.should == 1
+      subject.lines.first.should include("This is a commit")
     end
   end
 end

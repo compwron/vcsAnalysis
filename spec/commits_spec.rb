@@ -2,14 +2,18 @@ require_relative "spec_helper"
 
 describe Commits do
 
-  subject { Commits.new }
+  let(:lines) { ["commit 1", "commit 2"] }
+  let(:devnames) { "Alice Bob" }
+
+  subject { Commits.new(lines, devnames, "FOO-") }
 
   before do
   end
 
-  describe "#method_name" do
-    it "should do stuff because x" do
-    	# subject.method_name.should == "value"
-    end
-  end
+# Commits.new(Parser.new(opts[:root], opts[:after]).lines, opts[:devnames], opts[:cardprefix])
+  # describe "#method_name" do
+    # it "should do stuff because x" do
+      # subject.
+    # end
+  # end
 end
