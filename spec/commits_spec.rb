@@ -11,9 +11,9 @@ describe Commits do
   end
 
 # Commits.new(Parser.new(opts[:root], opts[:after]).lines, opts[:devnames], opts[:cardprefix])
-  # describe "#method_name" do
-    # it "should do stuff because x" do
-      # subject.
-    # end
-  # end
+# describe "#method_name" do
+# it "should do stuff because x" do
+# subject.
+# end
+# end
 end

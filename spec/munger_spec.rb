@@ -8,8 +8,8 @@ describe Munger do
 
   describe "#by_card" do
     it "should output data formatted by card" do
-    	commits = Commits.new(["FOO-100 [Alice, Bob] stuff"], "Alice Bob", "FOO-")
-    	Munger.new(commits).by_card.should == ["FOO-100 ... 1 commit ... devs: Alice, Bob"]
+      commits = Commits.new(["FOO-100 [Alice, Bob] stuff"], "Alice Bob", "FOO-")
+      Munger.new(commits).by_card.should == ["FOO-100 ... 1 commit ... devs: Alice, Bob"]
     end
   end
 end

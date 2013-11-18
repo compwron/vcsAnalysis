@@ -1,4 +1,5 @@
 class Commit
+  attr_accessor :card_number
 
   def initialize line, devs_in_commit, card_number
     @line = line
