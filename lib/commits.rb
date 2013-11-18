@@ -11,6 +11,9 @@ class Commits
   end
 
   def card_in(line, card_prefix)
+    regex = /(#{card_prefix}\d+)/
+    matcher = line.match(regex)
+    matcher.nil? ? nil : (line.match regex)[1]
   end
 
   def each &block
