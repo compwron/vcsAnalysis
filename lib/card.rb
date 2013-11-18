@@ -9,7 +9,9 @@ class Card
   end
 
   def devs_in commits
-    devs = YAML.parse("config/devs.yml")
+    config = YAML.load_file("/tmp/vcsAnalysis/devs.yml")
+    devs = config['devs'].split(" ")
+    puts "#devs: #{devs}"
     commits.select { |commit|
       devs.any? { |dev| commit.line.include?(dev) }
     }
