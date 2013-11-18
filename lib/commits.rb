@@ -7,6 +7,7 @@ class Commits
   end
 
   def devs_in(line, dev_names)
+    dev_names.split(" ").select { |dev_name| line.include?(dev_name) }
   end
 
   def card_in(line, card_prefix)
